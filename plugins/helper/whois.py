@@ -47,7 +47,7 @@ async def who_is(client, message):
         f"<b>᚛› ɪꜱ ᴠᴇʀɪꜰɪᴇᴅ:</b> True" if from_user.is_verified else ""
         f"<b>᚛› ɪꜱ ꜱᴄᴀᴍ:</b> True" if from_user.is_scam else ""
         # f"<b>Is Fake:</b> True" if from_user.is_fake else ""
-        f"<b>᚛› 𝙻𝙰𝚂𝚃 𝚂𝙴𝙴𝙽 ʟᴀꜱᴛ ꜱᴇᴇɴ:</b> <code>{last_online(from_user)}</code>\n\n"
+        f"<b>᚛› ʟᴀꜱᴛ ꜱᴇᴇɴ:</b> <code>{last_online(from_user)}</code>\n\n"
     )
 
     if message.chat.type in [enums.ChatType.SUPERGROUP, enums.ChatType.CHANNEL]:
