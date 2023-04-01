@@ -84,4 +84,4 @@ class hsbotz(object):
 
 ᴩᴏᴡᴇʀᴇᴅ ʙʏ - <a href=https://t.me/Hs_Botz>ʜꜱ ᠰ ʙᴏᴛꜱ</a></b>"""
 
-   SONGOP_TXT = """<b>ꜱᴜᴩᴩᴏʀᴛ<a href=https://t.me/TAMIL_FLIMS_HD>ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ</a>\n\nᴩᴏᴡᴇʀᴇᴅ ʙʏ - <a href=https://t.me/Hs_Botz>ʜꜱ ᠰ ʙᴏᴛꜱ</a></b>"""
+   SONGOP_TXT = """𝑴𝒐𝒗𝒊𝒆 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 : [𝒄𝒉𝒂𝒏𝒏𝒆𝒍](https://t.me/TAMIL_FLIMS_HD)\n\n𝒑𝒐𝒘𝒆𝒓𝒆𝒅 𝒃𝒚 : [𝑯𝒔 𝑩𝒐𝒕](https://t.me/Hs_Botz)"""
