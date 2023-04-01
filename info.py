@@ -48,7 +48,7 @@ DOWNLOAD_LOCATION = environ.get("DOWNLOAD_LOCATION", "./DOWNLOADS/AudioBoT/")
 TMP_DOWNLOAD_DIRECTORY = environ.get("TMP_DOWNLOAD_DIRECTORY", "./DOWNLOADS/")
 
 # Command
-COMMAND_HAND_LER = environ.get("COMMAND_HAND_LER", "/")
+#COMMAND_HAND_LER = environ.get("COMMAND_HAND_LER", "/")
 
 # MongoDB information
 DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://koyeb1:koyeb1@cluster0.ig5ttb5.mongodb.net/?retryWrites=true&w=majority")
