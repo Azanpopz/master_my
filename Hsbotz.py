@@ -83,3 +83,5 @@ class hsbotz(object):
 ᴄᴏʀʀᴇᴄᴛ ꜱᴇʀɪᴇs ʀᴇǫᴜᴇsᴛɪɴɢ ᴍᴇᴛʜᴏᴅ ☞ /series
 
 ᴩᴏᴡᴇʀᴇᴅ ʙʏ - <a href=https://t.me/Hs_Botz>ʜꜱ ᠰ ʙᴏᴛꜱ</a></b>"""
+
+   SONGOP_TXT = """<b>ꜱᴜᴩᴩᴏʀᴛ<a href=https://t.me/TAMIL_FLIMS_HD>ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ</a>\n\nᴩᴏᴡᴇʀᴇᴅ ʙʏ - <a href=https://t.me/Hs_Botz>ʜꜱ ᠰ ʙᴏᴛꜱ</a></b>"""
