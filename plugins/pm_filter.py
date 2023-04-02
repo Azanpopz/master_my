@@ -11,7 +11,7 @@ import pyrogram
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, \
     make_inactive
 from info import LANGUAGES, MAX_BTN, ADMINS, AUTH_CHANNEL, AUTH_USERS, SUPPORT_CHAT_ID, CUSTOM_FILE_CAPTION, MSG_ALRT, PICS, AUTH_GROUPS, P_TTI_SHOW_OFF, GRP_LNK, CHNL_LNK, NOR_IMG, LOG_CHANNEL, SPELL_IMG, MAX_B_TN, IMDB, \
-    SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE, NO_RESULTS_MSG, REQ_CHANNEL, MVG_LNK, OWN_LNK, HOW_TO_DOWNLOAD
+    SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE, NO_RESULTS_MSG, REQ_CHANNEL, MVG_LNK, OWN_LNK, HOW_TO_DOWNLOAD, SELF_DELETE, SELF_DELETE_SECONDS
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, InputMediaPhoto
 from pyrogram import Client, filters, enums
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
@@ -2512,80 +2512,30 @@ async def auto_filter(client, msg, spoll=False):
         cap = f"<b>📟 ᴛɪᴛʟᴇ : {search} \n📂ᴛᴏᴛᴀʟ ꜰɪʟᴇs ꜰᴏᴜɴᴅᴇᴅ : {str(total_results)}\n\n👩🏻‍💻 ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ : {message.from_user.mention} \n\n\n⚠️ ᴛʜɪs ᴍᴇssᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏ ᴅᴇʟᴇᴛᴇᴅ ᴀғᴛᴇʀ 𝟷𝟶 ᴍɪɴᴜᴛᴇs.</b>"
     if imdb and imdb.get('poster'):
         try:
-            if message.chat.id == SUPPORT_CHAT_ID:
-                await message.reply_text(f"<b>Hᴇʏ {message.from_user.mention}, {str(total_results)} ʀᴇsᴜʟᴛs ᴀʀᴇ ғᴏᴜɴᴅ ɪɴ ᴍʏ ᴅᴀᴛᴀʙᴀsᴇ ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {search}. Kɪɴᴅʟʏ ᴜsᴇ ɪɴʟɪɴᴇ sᴇᴀʀᴄʜ ᴏʀ ᴍᴀᴋᴇ ᴀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴀᴅᴅ ᴍᴇ ᴀs ᴀᴅᴍɪɴ ᴛᴏ ɢᴇᴛ ᴍᴏᴠɪᴇ ғɪʟᴇs. Tʜɪs ɪs ᴀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ sᴏ ᴛʜᴀᴛ ʏᴏᴜ ᴄᴀɴ'ᴛ ɢᴇᴛ ғɪʟᴇs ғʀᴏᴍ ʜᴇʀᴇ...</b>")
-            else:
-                hehe = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
-                try:
-                    if settings['auto_delete']:
-                        await asyncio.sleep(200)
-                        await hehe.delete()
-                        await message.delete()
-                except KeyError:
-                    grpid = await active_connection(str(message.from_user.id))
-                    await save_group_settings(grpid, 'auto_delete', True)
-                    settings = await get_settings(message.chat.id)
-                    if settings['auto_delete']:
-                        await asyncio.sleep(200)
-                        await hehe.delete()
-                        await message.delete()
+            hehe =  await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
+                                      reply_markup=InlineKeyboardMarkup(btn))
+            if SELF_DELETE:
+                await asyncio.sleep(SELF_DELETE_SECONDS)
+                await hehe.delete()
+
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
-            if message.chat.id == SUPPORT_CHAT_ID:
-                await message.reply_text(f"<b>Hᴇʏ {message.from_user.mention}, {str(total_results)} ʀᴇsᴜʟᴛs ᴀʀᴇ ғᴏᴜɴᴅ ɪɴ ᴍʏ ᴅᴀᴛᴀʙᴀsᴇ ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {search}. Kɪɴᴅʟʏ ᴜsᴇ ɪɴʟɪɴᴇ sᴇᴀʀᴄʜ ᴏʀ ᴍᴀᴋᴇ ᴀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴀᴅᴅ ᴍᴇ ᴀs ᴀᴅᴍɪɴ ᴛᴏ ɢᴇᴛ ᴍᴏᴠɪᴇ ғɪʟᴇs. Tʜɪs ɪs ᴀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ sᴏ ᴛʜᴀᴛ ʏᴏᴜ ᴄᴀɴ'ᴛ ɢᴇᴛ ғɪʟᴇs ғʀᴏᴍ ʜᴇʀᴇ...</b>")
-            else:
-                pic = imdb.get('poster')
-                poster = pic.replace('.jpg', "._V1_UX360.jpg")
-                hmm = await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
-                try:
-                    if settings['auto_delete']:
-                        await asyncio.sleep(200)
-                        await hmm.delete()
-                        await message.delete()
-                except KeyError:
-                    grpid = await active_connection(str(message.from_user.id))
-                    await save_group_settings(grpid, 'auto_delete', True)
-                    settings = await get_settings(message.chat.id)
-                    if settings['auto_delete']:
-                        await asyncio.sleep(200)
-                        await hmm.delete()
-                        await message.delete()
+            pic = imdb.get('poster')
+            poster = pic.replace('.jpg', "._V1_UX360.jpg")
+            hmm = await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+            if SELF_DELETE:
+                await asyncio.sleep(SELF_DELETE_SECONDS)
+                await hmm.delete()
         except Exception as e:
-            if message.chat.id == SUPPORT_CHAT_ID:
-                await message.reply_text(f"<b>Hᴇʏ {message.from_user.mention}, {str(total_results)} ʀᴇsᴜʟᴛs ᴀʀᴇ ғᴏᴜɴᴅ ɪɴ ᴍʏ ᴅᴀᴛᴀʙᴀsᴇ ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {search}. Kɪɴᴅʟʏ ᴜsᴇ ɪɴʟɪɴᴇ sᴇᴀʀᴄʜ ᴏʀ ᴍᴀᴋᴇ ᴀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴀᴅᴅ ᴍᴇ ᴀs ᴀᴅᴍɪɴ ᴛᴏ ɢᴇᴛ ᴍᴏᴠɪᴇ ғɪʟᴇs. Tʜɪs ɪs ᴀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ sᴏ ᴛʜᴀᴛ ʏᴏᴜ ᴄᴀɴ'ᴛ ɢᴇᴛ ғɪʟᴇs ғʀᴏᴍ ʜᴇʀᴇ...</b>")
-            else:
-                logger.exception(e)
-                fek = await message.reply_photo(photo=NOR_IMG, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-                try:
-                    if settings['auto_delete']:
-                        await asyncio.sleep(200)
-                        await fek.delete()
-                        await message.delete()
-                except KeyError:
-                    grpid = await active_connection(str(message.from_user.id))
-                    await save_group_settings(grpid, 'auto_delete', True)
-                    settings = await get_settings(message.chat.id)
-                    if settings['auto_delete']:
-                        await asyncio.sleep(200)
-                        await fek.delete()
-                        await message.delete()
+            logger.exception(e)
+            fek = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
+            if SELF_DELETE:
+                await asyncio.sleep(SELF_DELETE_SECONDS)
+                await fek.delete()
     else:
-        if message.chat.id == SUPPORT_CHAT_ID:
-            await message.reply_text(f"<b>Hᴇʏ {message.from_user.mention}, {str(total_results)} ʀᴇsᴜʟᴛs ᴀʀᴇ ғᴏᴜɴᴅ ɪɴ ᴍʏ ᴅᴀᴛᴀʙᴀsᴇ ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {search}. Kɪɴᴅʟʏ ᴜsᴇ ɪɴʟɪɴᴇ sᴇᴀʀᴄʜ ᴏʀ ᴍᴀᴋᴇ ᴀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴀᴅᴅ ᴍᴇ ᴀs ᴀᴅᴍɪɴ ᴛᴏ ɢᴇᴛ ᴍᴏᴠɪᴇ ғɪʟᴇs. Tʜɪs ɪs ᴀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ sᴏ ᴛʜᴀᴛ ʏᴏᴜ ᴄᴀɴ'ᴛ ɢᴇᴛ ғɪʟᴇs ғʀᴏᴍ ʜᴇʀᴇ...</b>")
-        else:
-            fuk = await message.reply_photo(photo=NOR_IMG, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-            try:
-                if settings['auto_delete']:
-                    await asyncio.sleep(200)
-                    await fuk.delete()
-                    await message.delete()
-            except KeyError:
-                grpid = await active_connection(str(message.from_user.id))
-                await save_group_settings(grpid, 'auto_delete', True)
-                settings = await get_settings(message.chat.id)
-                if settings['auto_delete']:
-                    await asyncio.sleep(200)
-                    await fuk.delete()
-                    await message.delete()
+        fuk = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
+        if SELF_DELETE:
+            await asyncio.sleep(SELF_DELETE_SECONDS)
+            await fuk.delete()
 
 
 async def advantage_spell_chok(client, msg):
