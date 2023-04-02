@@ -119,3 +119,10 @@ LOG_STR += f"Your current IMDB template is {IMDB_TEMPLATE}"
 
     # Download Tutorial Button #
 HOW_TO_DOWNLOAD =  environ.get('HOW_TO_DOWNLOAD', 'https://t.me/linkdownlos/2')
+
+    # Auto Delete For Group Message (Self Delete) #
+
+SELF_DELETE_SECONDS = int(environ.get('SELF_DELETE_SECONDS', 50))
+SELF_DELETE = environ.get('SELF_DELETE', True)
+if SELF_DELETE == "True":
+    SELF_DELETE = True
