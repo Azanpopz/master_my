@@ -501,9 +501,9 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
             btn.insert(
                 0,
                 [
-                    InlineKeyboardButton('ɪɴꜰᴏ', 'reqinfo'),
+                    InlineKeyboardButton('ɪɴꜰᴏ', 'info'),
                     InlineKeyboardButton('ᴍᴏᴠɪᴇ', 'minfo'),
-                    InlineKeyboardButton('ꜱᴇʀɪᴇꜱ', 'sinfo'),
+                    InlineKeyboardButton(f'ᴛɪᴘs​', 'tips'),
                 ],
             )
 
@@ -512,7 +512,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
                 0,
                 [
                     InlineKeyboardButton('ᴍᴏᴠɪᴇ', 'minfo'),
-                    InlineKeyboardButton('ꜱᴇʀɪᴇꜱ', 'sinfo'),
+                    InlineKeyboardButton(f'ᴛɪᴘs​', 'tips'),
                 ],
             )
 
@@ -524,9 +524,9 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
             btn.insert(
                 0,
                 [
-                    InlineKeyboardButton('ɪɴꜰᴏ', 'reqinfo'),
+                    InlineKeyboardButton('ɪɴꜰᴏ', 'info'),
                     InlineKeyboardButton('ᴍᴏᴠɪᴇ', 'minfo'),
-                    InlineKeyboardButton('ꜱᴇʀɪᴇꜱ', 'sinfo'),
+                    InlineKeyboardButton(f'ᴛɪᴘs​', 'tips'),
                 ],
             )
 
@@ -535,7 +535,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
                 0,
                 [
                     InlineKeyboardButton('ᴍᴏᴠɪᴇ', 'minfo'),
-                    InlineKeyboardButton('ꜱᴇʀɪᴇꜱ', 'sinfo'),
+                    InlineKeyboardButton(f'ᴛɪᴘs​', 'tips'),
                 ],
             )
 
