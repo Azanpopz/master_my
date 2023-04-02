@@ -207,7 +207,7 @@ async def next_page(bot, query):
         if settings['auto_delete']:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'ɪɴꜰᴏ', 'info'),
+                    InlineKeyboardButton(f'ꜰɪʟᴇs: {total}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇꜱ", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
                     InlineKeyboardButton(f'ᴛɪᴘs​', 'tips')
                 ]
@@ -216,7 +216,7 @@ async def next_page(bot, query):
         else:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'ɪɴꜰᴏ', 'info'),
+                    InlineKeyboardButton(f'ꜰɪʟᴇs: {total}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇꜱ", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
                     InlineKeyboardButton(f'ᴛɪᴘs​', 'tips')
                 ]
@@ -229,7 +229,7 @@ async def next_page(bot, query):
         if settings['auto_delete']:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'ɪɴꜰᴏ', 'info'),
+                    InlineKeyboardButton(f'ꜰɪʟᴇs: {total}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇꜱ", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
                     InlineKeyboardButton(f'ᴛɪᴘs​', 'tips')
                 ]
@@ -238,7 +238,7 @@ async def next_page(bot, query):
         else:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'ɪɴꜰᴏ', 'info'),
+                    InlineKeyboardButton(f'ꜰɪʟᴇs: {total}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇꜱ", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
                     InlineKeyboardButton(f'ᴛɪᴘs​', 'tips')
                 ]
@@ -1399,7 +1399,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )    
     elif query.data == "help2":
         buttons = [[
-            InlineKeyboardButton('🔋  ᴍᴏʀᴇ ꜰᴇᴀᴛᴜʀᴇꜱ  🔋', callback_data='help')
+            InlineKeyboardButton('🔋 ᴩᴏᴇɴ ᴛʜᴇ ᴍᴏʀᴇ ꜰᴇᴀᴛᴜʀᴇꜱ 🔋', callback_data='help')
         ], [
             InlineKeyboardButton('ꜰɪʟᴛᴇʀs', callback_data='filters'),
             InlineKeyboardButton('ꜰɪʟᴇ sᴛᴏʀᴇ', callback_data='store_file')
@@ -1568,7 +1568,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "manuelfilter":
         buttons = [[
             InlineKeyboardButton('↻ ʙᴀᴄᴋ​ ↺', callback_data='filters'),
-            InlineKeyboardButton('Bᴜᴛᴛᴏɴs', callback_data='button')
+            InlineKeyboardButton('ʙᴜᴛᴛᴏɴs', callback_data='button')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
@@ -1941,7 +1941,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if query.from_user.id in ADMINS:
             await query.message.edit_text(text=script.ADMIN_TXT, reply_markup=reply_markup, parse_mode=enums.ParseMode.HTML)
         else:
-            await query.answer("⚠ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ⚠\n\nIᴛꜱ ᴏɴʟʏ ғᴏʀ ᴍʏ ADMINS\n\n©ᴍʟᴢ ʙᴏᴛᴢ", show_alert=True)
+            await query.answer("⚠ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ⚠\n\nIᴛꜱ ᴏɴʟʏ ғᴏʀ ᴍʏ ADMINS\n\nʜꜱ ᠰ ʙᴏᴛꜱ", show_alert=True)
 
     elif query.data == "json":
         buttons = [[
@@ -1969,7 +1969,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "urlshort":
         buttons = [[
-            InlineKeyboardButton('⇍Bᴀᴄᴋ', callback_data='help')
+            InlineKeyboardButton('↻ ʙᴀᴄᴋ​ ↺', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
@@ -1994,7 +1994,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "whois":
         buttons = [[
-            InlineKeyboardButton('⇍Bᴀᴄᴋ', callback_data='help')
+            InlineKeyboardButton('↻ ʙᴀᴄᴋ​ ↺', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
@@ -2018,7 +2018,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "abook":
         buttons = [[
-            InlineKeyboardButton('⇍Bᴀᴄᴋ', callback_data='help')
+            InlineKeyboardButton('↻ ʙᴀᴄᴋ​ ↺', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
@@ -2044,10 +2044,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "deploy":
         buttons = [[
            InlineKeyboardButton('ʀᴇᴘᴏ', url='https://github.com/CrazyDeveloperTG/Doctor-Strange'),
-           InlineKeyboardButton('sᴜᴘᴘᴏʀᴛ', url='https://t.me/czdbotz_support')
+           InlineKeyboardButton('ᴜᴩᴅᴀᴛᴇꜱ', url='https://t.me/Hs_Botz')
         ], [
-            InlineKeyboardButton('⇍Bᴀᴄᴋ', callback_data='help'),
-            InlineKeyboardButton('ᴜᴘᴅᴀᴛᴇs', url='https://t.me/MLZ_BOTZ')
+            InlineKeyboardButton('↻ ʙᴀᴄᴋ​ ↺', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
@@ -2071,7 +2070,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "sticker":
         buttons = [[
-            InlineKeyboardButton('⇍Bᴀᴄᴋ', callback_data='help')
+            InlineKeyboardButton('↻ ʙᴀᴄᴋ​ ↺', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
@@ -2096,7 +2095,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "pings":
         buttons = [[
-            InlineKeyboardButton('⇍Bᴀᴄᴋ', callback_data='help')
+            InlineKeyboardButton('↻ ʙᴀᴄᴋ​ ↺', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
@@ -2120,7 +2119,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "fun":
         buttons = [[
-            InlineKeyboardButton('⇍Bᴀᴄᴋ', callback_data='help')
+            InlineKeyboardButton('↻ ʙᴀᴄᴋ​ ↺', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
@@ -2145,8 +2144,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "stats":
         buttons = [[
-            InlineKeyboardButton('⇍Bᴀᴄᴋ', callback_data='help2'),
-            InlineKeyboardButton('⟲ Rᴇғʀᴇsʜ', callback_data='rfrsh')
+            InlineKeyboardButton('↻ ʙᴀᴄᴋ​ ↺', callback_data='help2'),
+            InlineKeyboardButton('⟲ ʀᴇғʀᴇsʜ', callback_data='rfrsh')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
@@ -2183,7 +2182,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "rfrsh":
         await query.answer("Fetching MongoDb DataBase")
         buttons = [[
-            InlineKeyboardButton('⇍Bᴀᴄᴋ', callback_data='help2'),
+            InlineKeyboardButton('↻ ʙᴀᴄᴋ​ ↺', callback_data='help2'),
             InlineKeyboardButton('⟲ Rᴇғʀᴇsʜ', callback_data='rfrsh')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -2220,8 +2219,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "owner_info":
             btn = [[
-                    InlineKeyboardButton("⇍ʙᴀᴄᴋ", callback_data="start"),
-                    InlineKeyboardButton("Sᴜᴅᴏ", callback_data="admin")
+                    InlineKeyboardButton("↻ ʙᴀᴄᴋ​ ↺", callback_data="start"),
+                    InlineKeyboardButton("ꜱᴜᴅᴏ", callback_data="admin")
                   ]]
             reply_markup = InlineKeyboardMarkup(btn)
             await client.edit_message_media(
@@ -2404,7 +2403,7 @@ async def auto_filter(client, msg, spoll=False):
         if settings['auto_delete']:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'ɪɴꜰᴏ', 'info'),
+                    InlineKeyboardButton(f'ꜰɪʟᴇs: {total}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇꜱ", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
                     InlineKeyboardButton(f'ᴛɪᴘs​', 'tips')
                 ]
@@ -2413,7 +2412,7 @@ async def auto_filter(client, msg, spoll=False):
         else:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'ɪɴꜰᴏ', 'info'),
+                    InlineKeyboardButton(f'ꜰɪʟᴇs: {total}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇꜱ", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
                     InlineKeyboardButton(f'ᴛɪᴘs​', 'tips')
                 ]
@@ -2426,7 +2425,7 @@ async def auto_filter(client, msg, spoll=False):
         if settings['auto_delete']:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'ɪɴꜰᴏ', 'info'),
+                    InlineKeyboardButton(f'ꜰɪʟᴇs: {total}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇꜱ", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
                     InlineKeyboardButton(f'ᴛɪᴘs​', 'tips')
                 ]
@@ -2435,7 +2434,7 @@ async def auto_filter(client, msg, spoll=False):
         else:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'ɪɴꜰᴏ', 'info'),
+                    InlineKeyboardButton(f'ꜰɪʟᴇs: {total}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇꜱ", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
                     InlineKeyboardButton(f'ᴛɪᴘs​', 'tips')
                 ]
