@@ -20,6 +20,15 @@ class script(object):
 
 💞 ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ : <a href='https://t.me/TGxFOXY'>ꜰᴏxʏ ᴛɢ</a></b>"""
 
+    RENDERING_TXT = """
+⚡️ʟɪᴠᴇ sʏsᴛᴇᴍ sᴛᴀᴛᴜs ⚡️
+
+❂ ʀᴀᴍ ●●●●●●●◌◌◌
+✇ ᴄᴘᴜ ●●●●●●●◌◌◌
+✪ ᴅᴀᴛᴀ ᴛʀᴀꜰɪᴄs ●●●●◌◌◌◌◌◌ 🛰
+
+ᴠ2.7.1 [sᴛᴀʙʟᴇ] """
+
     ABOUT_TXT = """<b>
 ‣ ᴍʏ ɴᴀᴍᴇ : <a href='https://t.me/at3moviesofficalbot'>ᴍᴀsᴛᴇʀ​​​</a>
 ‣ ᴄʀᴇᴀᴛᴏʀ : <a href='tg://settings'>ᴛʜɪs ᴘᴇʀsᴏɴ​</a>
@@ -495,14 +504,6 @@ Commands and Usage:
 ⋆ ᴇxᴀᴍᴘʟᴇ : Uncharted
 
 🚯 ᴅᴏɴᴛ ᴜꜱᴇ ➠ ':(!,./)"""
-
-   RENDERING_TXT = """⚡️ʟɪᴠᴇ sʏsᴛᴇᴍ sᴛᴀᴛᴜs ⚡️
-
-❂ ʀᴀᴍ ●●●●●●●◌◌◌
-✇ ᴄᴘᴜ ●●●●●●●◌◌◌
-✪ ᴅᴀᴛᴀ ᴛʀᴀꜰɪᴄs ●●●●◌◌◌◌◌◌ 🛰
-
-ᴠ2.7.1 [sᴛᴀʙʟᴇ]"""
 
     TIPS = """
 ▣ ᴛɪᴘs ▣
