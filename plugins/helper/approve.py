@@ -14,14 +14,14 @@ async def autoapprove(client, message: ChatJoinRequest):
     await client.approve_chat_join_request(chat_id=chat.id, user_id=user.id)
     if APPROVED == "on":
         buttons = [[
-            InlineKeyboardButton('sᴜᴘᴘᴏʀᴛ​', url=f'https://t.me/MLZ_BOTZ_SUPPORT')
+            InlineKeyboardButton('sᴜᴘᴘᴏʀᴛ​', url=f'https://t.me/Tamil_Flims_HD')
             
         ]]
         markup = InlineKeyboardMarkup(buttons)
-        caption = f"<b>Dᴇᴀʀ {message.from_user.mention()},\n\nYour Request To Jᴏɪɴ {message.chat.title} Was Approved</b>"
+        caption = f"<b>ᴅᴇᴀʀ {message.from_user.mention()},\n\nʏᴏᴜʀ ʀᴇ𝚀ᴜᴇꜱᴛ ᴛᴏ ᴊᴏɪɴ {message.chat.title} ᴡᴀꜱ ᴀᴩᴩʀᴏᴠᴇᴅ</b>"
         await client.send_photo(
             message.from_user.id, 
-            photo='https://telegra.ph/file/f7738f04ea74e16c9db02.jpg', 
+            photo='https://telegra.ph/file/1ab316fdaf1357af28da2.jpg', 
             caption=caption, 
             reply_markup=markup
         )

@@ -14,13 +14,18 @@ async def share_text(client, message):
         input_text = reply.text or reply.caption
     else:
         await message.reply_text(
-            text=f"**Notice:**\n\n1. Reply Any Messages.\n2. No Media Support\n\n**Any Question Join Support Chat**",                
+            text=f"**Nᴏᴛɪᴄᴇ:**\n\n1. ʀᴇᴩʟʏ ᴛᴏ ᴀɴʏ ᴍᴇssᴀɢᴇ.\n2. ɴᴏ ᴍᴇᴅɪᴀ ꜱᴜᴩᴩᴏʀᴛ ﹝ sᴜᴩᴩᴏʀᴛs ᴏɴʟʏ ᴛᴇxᴛ ﹞\n\n**Jᴏɪɴ Nᴏᴡ Oᴜʀ Uᴩᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ**",                
             reply_to_message_id=reply_id,               
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Support Chat", url=f"https://t.me/MKN_BOTZ_DISCUSSION_GROUP")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("💌 ʙᴏᴛꜱ ᴜᴩᴅᴀᴛᴇs 💌", url=f"https://t.me/Hs_Botz")]])
             )                                                   
         return
     await message.reply_text(
-        text=f"**Here is Your Sharing Text 👇**\n\nhttps://t.me/share/url?url=" + quote(input_text),
+        text=f"**ʜᴇʀᴇ ɪs ʏᴏᴜʀ ꜱʜᴀʀɪɴɢ ᴛᴇxᴛ 👇**\n\nhttps://t.me/share/url?url=" + quote(input_text),
         reply_to_message_id=reply_id,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("♂️ Share", url=f"https://t.me/share/url?url={quote(input_text)}")]])       
-    )
+        reply_markup=InlineKeyboardMarkup(
+             [[
+               InlineKeyboardButton("💌 ꜱʜᴀʀᴇ ɪᴅ 💌", url=f"https://t.me/share/url?url={quote(input_text)}")
+             ],[
+               InlineKeyboardButton("💌 ʙᴏᴛꜱ ᴜᴩᴅᴀᴛᴇs 💌", url=f"https://t.me/Hs_Botz")
+             ]])       
+         )

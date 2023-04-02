@@ -43,15 +43,15 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton('〆 ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ 〆', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            InlineKeyboardButton('➕ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('sᴇᴀʀᴄʜ​', switch_inline_query_current_chat=''),
+            InlineKeyboardButton('◈ ᴜᴩᴅᴀᴛᴇꜱ ◈', url='https://t.me/Hs_Botz'),
             InlineKeyboardButton('♚ ᴏᴡɴᴇʀ ♚', callback_data='owner_info')
             ],[      
             InlineKeyboardButton('〄 ʜᴇʟᴘ 〄', callback_data='help2'),
             InlineKeyboardButton('⍟ ᴀʙᴏᴜᴛ ⍟', callback_data='about')
             ],[
-            InlineKeyboardButton('⌬ sᴜᴘᴘᴏʀᴛ ⌬', callback_data='support_group')
+            InlineKeyboardButton('✘ ꜱᴜᴩᴩᴏʀᴛ ᴍʏ ᴄʜᴀɴɴᴇʟꜱ ✘', callback_data='support_group')
         ]]                  
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -69,15 +69,15 @@ async def start(client, message):
         return
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
-            InlineKeyboardButton('〆 ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ 〆', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            InlineKeyboardButton('➕ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('sᴇᴀʀᴄʜ​', switch_inline_query_current_chat=''),
+            InlineKeyboardButton('◈ ᴜᴩᴅᴀᴛᴇꜱ ◈', url='https://t.me/Hs_Botz'),
             InlineKeyboardButton('♚ ᴏᴡɴᴇʀ ♚', callback_data='owner_info')
             ],[      
             InlineKeyboardButton('〄 ʜᴇʟᴘ 〄', callback_data='help2'),
             InlineKeyboardButton('⍟ ᴀʙᴏᴜᴛ ⍟', callback_data='about')
             ],[
-            InlineKeyboardButton('⌬ sᴜᴘᴘᴏʀᴛ ⌬', callback_data='support_group')
+            InlineKeyboardButton('✘ ꜱᴜᴩᴩᴏʀᴛ ᴍʏ ᴄʜᴀɴɴᴇʟꜱ ✘', callback_data='support_group')
         ]]         
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -780,7 +780,7 @@ async def deletemultiplefiles(bot, message):
 async def shortlink(bot, message):
     chat_type = message.chat.type
     if chat_type == enums.ChatType.PRIVATE:
-        return await message.reply_text(f"<b>Hey {message.from_user.mention}, This command only works on groups !</b>")
+        return await message.reply_text(f"<b>𝑯𝒆𝒚 {message.from_user.mention}, 𝑻𝒉𝒊𝒔 𝒄𝒐𝒎𝒎𝒂𝒏𝒅 𝒐𝒏𝒍𝒚 𝒘𝒐𝒓𝒌𝒔 𝒐𝒏 𝒈𝒓𝒐𝒖𝒑𝒔..🪄</b>")
     elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         grpid = message.chat.id
         title = message.chat.title
@@ -790,15 +790,15 @@ async def shortlink(bot, message):
     userid = message.from_user.id
     user = await bot.get_chat_member(grpid, userid)
     if user.status != enums.ChatMemberStatus.ADMINISTRATOR and user.status != enums.ChatMemberStatus.OWNER and str(userid) not in ADMINS:
-        return await message.reply_text("<b>You don't have access to use this command !</b>")
+        return await message.reply_text("<b>𝒀𝒐𝒖 𝒅𝒐𝒏'𝒕 𝒉𝒂𝒗𝒆 𝒂𝒄𝒄𝒆𝒔𝒔 𝒕𝒐 𝒖𝒔𝒆 𝒕𝒉𝒊𝒔 𝒄𝒐𝒎𝒎𝒂𝒏𝒅 !</b>")
     else:
         pass
     try:
         command, shortlink_url, api = data.split(" ")
     except:
-        return await message.reply_text("<b>Command Incomplete :(\n\nGive me a shortlink and api along with the command !\n\nFormat: <code>/shortlink shorturllink.in 95a8195c40d31e0c3b6baa68813fcecb1239f2e9</code></b>")
-    reply = await message.reply_text("<b>Please Wait...</b>")
+        return await message.reply_text("<b>𝑪𝒐𝒎𝒎𝒂𝒏𝒅 𝑰𝒏𝒄𝒐𝒎𝒑𝒍𝒆𝒕𝒆 :\n\n𝑮𝒊𝒗𝒆 𝒎𝒆 𝒂 𝒔𝒉𝒐𝒓𝒕𝒍𝒊𝒏𝒌 𝒂𝒏𝒅 𝒂𝒑𝒊 𝒂𝒍𝒐𝒏𝒈 𝒘𝒊𝒕𝒉 𝒕𝒉𝒆 𝒄𝒐𝒎𝒎𝒂𝒏𝒅 !\n\n𝑭𝒐𝒓𝒎𝒂𝒕 : <code>/shortlink tnlink.in ec72f63f7a24370058610e02813fff3ec317f4c0</code></b>")
+    reply = await message.reply_text("<b>𝑷𝒍𝒆𝒂𝒔𝒆 𝑾𝒂𝒊𝒕...</b>")
     await save_group_settings(grpid, 'shortlink', shortlink_url)
     await save_group_settings(grpid, 'shortlink_api', api)
     await save_group_settings(grpid, 'is_shortlink', True)
-    await reply.edit_text(f"<b>Successfully added shortlink API for {title}.\n\nCurrent Shortlink Website: <code>{shortlink_url}</code>\nCurrent API: <code>{api}</code></b>")
+    await reply.edit_text(f"<b>𝑺𝒖𝒄𝒄𝒆𝒔𝒔𝒇𝒖𝒍𝒍𝒚 𝒂𝒅𝒅𝒆𝒅 𝒔𝒉𝒐𝒓𝒕𝒍𝒊𝒏𝒌 𝒂𝒑𝒊 𝒇𝒐𝒓 {title}.\n\n𝑪𝒖𝒓𝒓𝒆𝒏𝒕 𝑺𝒉𝒐𝒓𝒕𝒍𝒊𝒏𝒌 𝑾𝒆𝒃𝒔𝒊𝒕𝒆: <code>{shortlink_url}</code>\n𝑪𝒖𝒓𝒓𝒆𝒏𝒕 𝒂𝒑𝒊 : <code>{api}</code></b>")

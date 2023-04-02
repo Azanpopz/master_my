@@ -16,22 +16,22 @@ def is_enabled(value, default):
 
 # Bot information
 SESSION = environ.get('SESSION', 'Media_search')
-API_ID = int(environ['API_ID'])
-API_HASH = environ['API_HASH']
-BOT_TOKEN = environ['BOT_TOKEN']
+API_ID = int(environ.get('API_ID', '10261086'))
+API_HASH = environ.get('API_HASH', '9195dc0591fbdb22b5711bcd1f437dab')
+BOT_TOKEN = environ.get('BOT_TOKEN', "5886125841:AAExUZBuaKFgiunozEKXXvNNfyvZKMoBkaM")
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
 USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', True))
 
-PICS = (environ.get('PICS', 'https://telegra.ph/file/42519dda4755340dd10f7.jpg https://telegra.ph/file/c901186bd760c82824fe3.jpg https://telegra.ph/file/2293984bd0e297095678d.jpg https://telegra.ph/file/0c1d922a6b562d406d51f.jpg https://telegra.ph/file/d5812064dd21dea6bb534.jpg https://telegra.ph/file/e7923e972c09ddc262a63.jpg https://telegra.ph/file/f5ad26d1194350e49b2f7.jpg https://telegra.ph/file/0746e2630a908d0ff1183.jpg https://telegra.ph/file/50e94f5441b80da71a95c.jpg https://telegra.ph/file/89ebceb2fccc949f88dff.jpg https://telegra.ph/file/2d561e87a07ff1df13a1c.jpg https://telegra.ph/file/06c8ceca3ac59fb4b45a4.jpg')).split()
+PICS = (environ.get('PICS', 'https://graph.org/file/0b9151030fff5f35c4e11.jpg https://graph.org/file/630fd5fbc59fe83cefc34.jpg https://graph.org/file/5ed6c28c61ea6212e91f9.jpg https://graph.org/file/489c6b8058709c52ee31c.jpg https://graph.org/file/2c30c1452c2c4bccc3046.jpg https://graph.org/file/4f4c6bfc6a016b11ddef4.jpg https://graph.org/file/daf2b545d8b9b732b71d7.jpg https://graph.org/file/b711a112dc78f0bcc2cad.jpg https://graph.org/file/0858959a66bb00a29fd95.jpg https://graph.org/file/8ca62e6ad091a7cf4d86d.jpg https://graph.org/file/08ed0cd0bc6ac0bc37f49.jpg https://graph.org/file/4dc11ffde60a857316abe.jpg https://graph.org/file/3bce5258bede563a9c559.jpg https://graph.org/file/6cb914abbb21a755b601c.jpg https://graph.org/file/58a6861cf47953a596573.jpg https://graph.org/file/f7d482b08d48c2dc8a30a.jpg https://graph.org/file/a949483ebc4c3fe89bdc0.jpg https://graph.org/file/7b13e39550b56b82bd9f7.jpg https://graph.org/file/1cbe46cd74e11c704bbe2.jpg https://telegra.ph/file/e9c7a37f2522a1f4e494d.jpg')).split()
 NOR_IMG = environ.get("NOR_IMG", "https://telegra.ph/file/75d4149a9a971c77508fc.jpg")
 MELCOW_VID = environ.get("MELCOW_VID", "https://telegra.ph/file/f7f2a532fe4b990044507.mp4")
 SPELL_IMG = environ.get("SPELL_IMG", "https://telegra.ph/file/17b82ea772e4bc357bbf5.jpg")
 
 # Admins, Channels & Users
-ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
-CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '0').split()]
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '1426588906').split()]
+CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1001878854070').split()]
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
 auth_grp = environ.get('AUTH_GROUP')
@@ -51,8 +51,8 @@ TMP_DOWNLOAD_DIRECTORY = environ.get("TMP_DOWNLOAD_DIRECTORY", "./DOWNLOADS/")
 COMMAND_HAND_LER = environ.get("COMMAND_HAND_LER", "/")
 
 # MongoDB information
-DATABASE_URI = environ.get('DATABASE_URI', "")
-DATABASE_NAME = environ.get('DATABASE_NAME', "Rajappan")
+DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://koyeb1:koyeb1@cluster0.ig5ttb5.mongodb.net/?retryWrites=true&w=majority")
+DATABASE_NAME = environ.get('DATABASE_NAME', "koyeb1")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
 # FSUB
@@ -86,7 +86,7 @@ CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/czdbotz')
 OWN_LNK = environ.get('S_GROUP',"https://t.me/AFxSU")
 MVG_LNK = environ.get('S_GROUP',"https://t.me/at3movies")
 MSG_ALRT = environ.get('MSG_ALRT', 'Piracy Is Crime')
-LOG_CHANNEL = int(environ.get('LOG_CHANNEL', 0))
+LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1001606248152'))
 SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'czdbotz_support')
 P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "True")), True)
 IMDB = is_enabled((environ.get('IMDB', "True")), True)
@@ -116,3 +116,13 @@ LOG_STR += ("Long IMDB storyline enabled." if LONG_IMDB_DESCRIPTION else "LONG_I
 LOG_STR += ("Spell Check Mode Is Enabled, bot will be suggesting related movies if movie not found\n" if SPELL_CHECK_REPLY else "SPELL_CHECK_REPLY Mode disabled\n")
 LOG_STR += (f"MAX_LIST_ELM Found, long list will be shortened to first {MAX_LIST_ELM} elements\n" if MAX_LIST_ELM else "Full List of casts and crew will be shown in imdb template, restrict them by adding a value to MAX_LIST_ELM\n")
 LOG_STR += f"Your current IMDB template is {IMDB_TEMPLATE}"
+
+    # Download Tutorial Button #
+HOW_TO_DOWNLOAD =  environ.get('HOW_TO_DOWNLOAD', 'https://t.me/linkdownlos/2')
+
+    # Auto Delete For Group Message (Self Delete) #
+
+SELF_DELETE_SECONDS = int(environ.get('SELF_DELETE_SECONDS', 50))
+SELF_DELETE = environ.get('SELF_DELETE', True)
+if SELF_DELETE == "True":
+    SELF_DELETE = True

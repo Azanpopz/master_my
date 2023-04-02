@@ -11,6 +11,7 @@ import time
 import wget
 import aiofiles
 
+from Hsbotz import hsbotz
 from pyrogram import filters, Client, enums
 from pyrogram.errors import FloodWait, MessageNotModified
 from pyrogram.types import Message
@@ -36,7 +37,7 @@ def song(client, message):
     for i in message.command[1:]:
         query += ' ' + str(i)
     print(query)
-    m = message.reply("**ѕєαrchíng чσur ѕσng...!**")
+    m = message.reply("**𝑺𝒆𝒂𝒓𝒄𝒉𝒊𝒏𝒈 𝒚𝒐𝒖 𝒔𝒐𝒏𝒈 𝄟...!**")
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
@@ -49,24 +50,24 @@ def song(client, message):
         open(thumb_name, 'wb').write(thumb.content)
 
 
-        performer = f"[Autofilter - Master]" 
+        performer = f"⚡️ʜꜱ ᠰ ʙᴏᴛꜱ⚡️" 
         duration = results[0]["duration"]
         url_suffix = results[0]["url_suffix"]
         views = results[0]["views"]
 
     except Exception as e:
         m.edit(
-            "**𝙵𝙾𝚄𝙽𝙳 𝙽𝙾𝚃𝙷𝙸𝙽𝙶 𝙿𝙻𝙴𝙰𝚂𝙴 𝙲𝙾𝚁𝚁𝙴𝙲𝚃 𝚃𝙷𝙴 𝚂𝙿𝙴𝙻𝙻𝙸𝙽𝙶 𝙾𝚁 𝚂𝙴𝙰𝚁𝙲𝙷 𝙰𝙽𝚈 𝙾𝚃𝙷𝙴𝚁 𝚂𝙾𝙽𝙶**"
+            "**𝑭𝒐𝒖𝒏𝒅 𝑵𝒐𝒕𝒉𝒊𝒏𝒈 𝑷𝒍𝒆𝒂𝒔𝒆 𝑪𝒐𝒓𝒓𝒆𝒄𝒕 𝑻𝒉𝒆 𝑺𝒑𝒆𝒍𝒍𝒊𝒏𝒈 𝑶𝒓 𝑺𝒆𝒂𝒓𝒄𝒉 𝑨𝒏𝒚 𝑶𝒕𝒉𝒆𝒓 𝑺𝒐𝒏𝒈**"
         )
         print(str(e))
         return
-    m.edit("**dσwnlσαdíng чσur ѕσng...!**")
+    m.edit("**𝒅𝒐𝒘𝒏𝒍𝒐𝒂𝒅𝒊𝒏𝒈 𝒚𝒐𝒖𝒓 𝒔𝒐𝒏𝒈....!**")
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = '**𝚂𝚄𝙱𝚂𝙲𝚁𝙸𝙱𝙴 ›› [🍁 ᴄʜᴀɴɴᴇʟ 🍁](https://t.me/MLZ_BOTZ)**\n**𝙿𝙾𝚆𝙴𝚁𝙴𝙳 𝙱𝚈 ›› [muѕíc](https://t.me/music_playboybot)**\n@𝙲𝙸𝙽𝙴𝙼𝙰𝙺𝙾𝚅𝙸𝙻𝙰𝙺𝙰𝙼**'
+        rep =hsbotz.SONGOP_TXT.format(message.from_user.mention)
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
@@ -74,7 +75,7 @@ def song(client, message):
         message.reply_audio(audio_file, caption=rep, parse_mode=enums.ParseMode.MARKDOWN,quote=False, title=title, duration=dur, performer=performer, thumb=thumb_name)
         m.delete()
     except Exception as e:
-        m.edit("**🚫 𝙴𝚁𝚁𝙾𝚁 🚫**")
+        m.edit("**⚠️ 𝒆𝒓𝒓𝒐𝒓**")
         print(e)
 
     try:
@@ -100,10 +101,10 @@ async def vsong(client, message: Message):
     urlissed = get_text(message)
 
     pablo = await client.send_message(
-        message.chat.id, f"**𝙵𝙸𝙽𝙳𝙸𝙽𝙶 𝚈𝙾𝚄𝚁 𝚅𝙸𝙳𝙴𝙾** `{urlissed}`"
+        message.chat.id, f"**𝑭𝒊𝒏𝒅𝒊𝒏𝒈 𝒚𝒐𝒖𝒓 𝒗𝒊𝒅𝒆𝒐... 🗯️** `{urlissed}`"
     )
     if not urlissed:
-        await pablo.edit("Invalid Command Syntax Please Check help Menu To Know More!")
+        await pablo.edit("𝑰𝒏𝒗𝒂𝒍𝒊𝒅 𝑪𝒐𝒎𝒎𝒂𝒏𝒅 𝑺𝒚𝒏𝒕𝒂𝒙 𝑷𝒍𝒆𝒂𝒔𝒆 𝑪𝒉𝒆𝒄𝒌 𝒉𝒆𝒍𝒑 𝑴𝒆𝒏𝒖 𝑻𝒐 𝑲𝒏𝒐𝒘 𝑴𝒐𝒓𝒆!")
         return
 
     search = SearchVideos(f"{urlissed}", offset=1, mode="dict", max_results=1)
@@ -133,14 +134,16 @@ async def vsong(client, message: Message):
         with YoutubeDL(opts) as ytdl:
             ytdl_data = ytdl.extract_info(url, download=True)
     except Exception as e:
-        await event.edit(event, f"**𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍 𝙵𝚊𝚒𝚕𝚎𝚍 𝙿𝚕𝚎𝚊𝚜𝚎 𝚃𝚛𝚢 𝙰𝚐𝚊𝚒𝚗..♥️** \n**Error :** `{str(e)}`")
+        await event.edit(event, f"**𝒅𝒐𝒘𝒏𝒍𝒐𝒂𝒅 𝒇𝒂𝒊𝒍𝒆𝒅 𝒑𝒍𝒆𝒂𝒔𝒆 𝒕𝒓𝒚 𝒂𝒈𝒂𝒊𝒏...🫰** \n**⚠️ 𝒆𝒓𝒓𝒐𝒓 :** `{str(e)}`")
         return
     c_time = time.time()
     file_stark = f"{ytdl_data['id']}.mp4"
     capy = f"""
-**𝚃𝙸𝚃𝙻𝙴 :** [{thum}]({mo})
-**𝚁𝙴𝚀𝚄𝙴𝚂𝚃𝙴𝙳 𝙱𝚈 :** {message.from_user.mention}
-**@ᴄᴄᴏᴍ_ᴛᴇᴀᴍ**
+**ᴛɪᴛʟᴇ :** [{thum}]({mo})
+
+**ʀᴇ𝚀ᴜᴇꜱᴛᴇᴅ ʙʏ:** {message.from_user.mention}
+
+**ʜꜱ ᠰ ʙᴏᴛꜱ😇**
 """
     await client.send_video(
         message.chat.id,
